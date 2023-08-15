@@ -1,7 +1,7 @@
 package bootstrap
 
 import (
-	"boilerplate-cleanarch/util"
+	"github.com/reyhanmichiels/boilerplate-cleanarch-go/util"
 	"fmt"
 	"os"
 )

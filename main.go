@@ -1,7 +1,7 @@
 package main
 
 import (
-	"boilerplate-cleanarch/bootstrap"
+	"github.com/reyhanmichiels/boilerplate-cleanarch-go/bootstrap"
 	"fmt"
 	"os"
 )
