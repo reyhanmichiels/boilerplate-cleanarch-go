@@ -11,31 +11,29 @@ import (
 func CreateFile(name string) error {
 	_, err := os.Stat(name)
 
-	if os.IsNotExist(err) {
+	if os.IsExist(err) {
 
-		if strings.Contains(name, "/") {
+		return errors.New("file already exist")
 
-			path := name[:strings.LastIndex(name, "/")]
+	}
 
-			err := os.MkdirAll(path, os.ModePerm)
-			if err != nil {
+	if strings.Contains(name, "/") {
 
-				return err
+		path := name[:strings.LastIndex(name, "/")]
 
-			}
-
-		}
-
-		_, err = os.Create(name)
+		err := os.MkdirAll(path, os.ModePerm)
 		if err != nil {
 
 			return err
 
 		}
 
-	} else {
+	}
 
-		return errors.New("file already exist")
+	_, err = os.Create(name)
+	if err != nil {
+
+		return err
 
 	}
 
